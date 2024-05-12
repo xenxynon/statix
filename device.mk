@@ -15,6 +15,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # NT Camera
 $(call inherit-product, vendor/nothing/camera/nothing-camera.mk)
+$(call inherit-product-if-exists, vendor/google/pixel/config.mk)
+$(call inherit-product-if-exists, vendor/google/gms/config.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -154,8 +156,7 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libvisualizer \
     libvolumelistener \
-    sound_trigger.primary.lahaina \
-    libspatialaudio 
+    sound_trigger.primary.lahaina
 
 AUDIO_HAL_DIR := hardware/qcom-caf/sm8350/audio
 
